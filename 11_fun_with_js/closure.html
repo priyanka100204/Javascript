@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    //link : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+/*
+    function init() {
+        let name = "Mozilla"; 
+        function displayName() {
+         
+          console.log(name); 
+        }
+        displayName();
+      }
+      init();
+      */
+
+//    function outer (){
+//        let username = "Priyanka"
+//        function inner(){
+//            let secret = 123;
+//            console.log("INNER",username);
+    //    }
+//        inner()
+  //      function innerTwo(){
+//        console.log("innerTwo", username)
+//            //console.log(secret)// ye errror dega
+//        }
+   //     innerTwo()
+        //console.log(secret)   // ye bhi error dega
+
+
+  //  }
+ //   outer()
+//    console.log("TOO OUTER", username)
+
+
+
+    //function makeFunc(){
+    //    const name = "Mozilla";
+    //    function displayName(){
+    //        console.log(name)
+    //   }
+    //   return displayName;
+    //}
+    // sb ek function return hota h tb na sirf function return hota h blki uska pura ka pura lexical scope bhi return hota h
+// interview 
+   // const myFunc = makeFunc(); // yha return me sirf displayName nhi jayega blki agr uska koi outer function exist krta h vo bhi jayega, pura ka pura lexical scope jayega mtlb jo bhi makeFunc() ke andr h sb jayega , na ki sirf executional part of displayName().
+    //myFunc();
+    
+</script>
+
+<script>
+   // document.getElementById('orange').onclick = function()
+   // {
+   //     document.body.style.backgroundColor = `orange`
+   // }
+   // document.getElementById('green').onclick = function()
+   // {
+   //     document.body.style.backgroundColor = `green`
+   // }// yehi kaam 500bar krna hua to kya krenge, 500 button de rkhe hue to 
+
+   function clickhandler (color){
+    //document.body.style.backgroundColor = `${color}` ye kaam nhi krega 
+    
+    return function (){
+        document.body.style.backgroundColor = `${color}`
+    }
+
+   }
+   document.getElementById('orange').onclick = clickhandler('orange')  
+   document.getElementById('green').onclick = clickhandler('green')  
+
+</script>
+</html>

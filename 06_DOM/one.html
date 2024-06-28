@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>DOM learning</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-black">
+        <h1 id="title" class="heading">DOM learning on Chai aur code  <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password">
+        <ul>
+            <li class="listitem">one</li>
+            <li class="listitem">two</li>
+            <li class="listitem">three</li>
+        </ul>
+
+    </div>
+    
+</body>
+<script>
+    //document.getElementById('//id ka naam')  ye pura ka pura element select krke return krega 
+    // document.getElementById('//id ka naam').id
+    // document.getElementById('//id ka naam').className
+    // document.getElementById('//id ka naam').getAttribute('Attribute ka naam jese id/class')
+    // document.getElementById('//id ka naam').setAttribute('Attribute ka naam jese id/class jisko set krna h ', 'new value jo set krni h')
+    
+     const mytitle =   document.getElementById('title') 
+     //console.log(mytitle)
+     mytitle.style.backgroundColor = 'green'    // ye us element ko style de dega
+     mytitle.style.padding = "15px"
+
+    // console.log(mytitle.textContent) // ye sara ka sara text return kr deta h 
+    // console.log(mytitle.innerText)   // ye sirf visible content hi deta h display none vala content nhi deta 
+    //console.log(mytitle.innerHTML)   // ye ander ka text and andr ki html dono deta h
+
+
+
+    //document.querySelector('iske ander jo bhi selector chahiye vo aata h')   //first vale ko select krke de deta h 
+    // querySelector ke inputs =>     'h1', '.class', '#id', 'input[type="password"]', 'p:first-child'
+
+        const myul = document.querySelector('ul')
+
+        const turnGreen = myul.querySelector('li')
+
+       // turnGreen.style.backgroundColor = "green"
+
+        turnGreen.innerText = "five"
+
+
+    //
+    //const tempLiList = document.querySelectorAll('li')    // sare ke sare ul ko select kr dega , ye NodeList dega
+
+    // bhot se log NodeList ko array samj lete h pr ye hota nhi h
+
+    //tempLiList.style.backgroundColor = "black"  //ye nodelist h ye aise kaam nhi krega 
+    //tempLiList[1].style.color="green"
+
+    const myh1 = document.querySelectorAll('h1')
+    console.log(myh1)
+   // myh1[0].style.color = "green"
+
+
+  // tempLiList.forEach( function (li){
+       // li.style.backgroundColor = "green"
+
+//   })
+
+
+   //2nd method  
+   //html collection pe forEach loop kaam nhi krega 
+
+  const tempClassList =  document.getElementsByClassName('listitem')
+  console.log(tempClassList)
+ 
+  // html collection ko convert krna hoga
+
+ const Convertedarray=  Array.from(tempClassList)
+ console.log(Convertedarray)
+
+ //ab forEach() use kr skte h
+ Convertedarray.forEach( function (li){
+    li.style.backgroundColor='orange'
+ })
+
+</script>
+</html>

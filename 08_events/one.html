@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events</title>
+</head>
+<body style="background-color: #414141; color:aliceblue">
+    <h2>Amazing images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="one" src="https://images.pexels.com/photos/18148936/pexels-photo-18148936.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" ></li>
+            <li><img width="200px" id="two"src="https://images.pexels.com/photos/13847596/pexels-photo-13847596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""></li>
+            <li><img width="200px"id="three"src="https://images.pexels.com/photos/1115815/pexels-photo-1115815.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""></li>
+            <li><img width="200px" id="four"src="https://images.pexels.com/photos/394649/pexels-photo-394649.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""></li>
+            <li><img width="200px" id="five"src="https://images.pexels.com/photos/394621/pexels-photo-394621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""></li>
+            <li><a style="color:aliceblue ;" href="http://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>// java script ke jitne bhi events hote h vo sequancly(syncronous) hi hote h kuch ek h jo nhi hote(javasript ke kuch events of browser)
+   
+   
+// document.getElementById('three').onclick = function(){
+//   alert("Third photo clicked")
+//}// is approach me jyada information nhi hoti h 'onclick' ki isliye eventlistner ka use krte h
+
+
+ //  document.getElementById('three').addEventListener('click', function(){
+ //   alert("third photo clicked")
+ //  })// eventlistner vo hote h jo propegation ki ability dete h 
+
+   // attachEvent()
+   // jQuery = on
+ //  document.getElementById('three').addEventListener('click', function(e){
+  //  console.log(e);
+ //  },false)
+
+   // read it 
+   //type of events : keyboard, mouse
+   // timestamp
+   //defaultPrevented
+   //target, toElement, srcElement, currentTarget
+   //clientX, clientY, screenX, screenY   interview
+   // altKey, ctrlKey, shiftkey, keyCode
+
+   // event propagetion - event bubbling, event capturing
+   
+   //true => parent to child execution, capturing mode(top to bottom)
+   /*document.getElementById('images').addEventListener('click', function(e){
+    console.log("clicked inside the ul");
+   },true);
+   document.getElementById('three').addEventListener('click', function(e){
+    console.log("third image clicked");
+   },true);
+   */
+   
+  // false => child to parent execution, inside to outside, bubbling(bottom to top)
+  /*
+   document.getElementById('images').addEventListener('click', function(e){
+    console.log("clicked inside the ul");
+   },false);
+   document.getElementById('three').addEventListener('click', function(e){
+    console.log("third image clicked");
+    //e.stopPropagation()
+   },false);
+
+*/
+
+/*
+   document.getElementById('google').addEventListener('click', function(e){
+       console.log("google clicked");
+       e.preventDefault();
+       e.stopPropagation();
+   }, false )
+*/
+
+   
+ document.querySelector('#images').addEventListener('click', function(e){
+  //console.log(e);
+  //console.log(e.target);
+  //console.log(e.target.parentNode); // target image tha, uska parent node to list h(li)
+  //console.log(e.target.tagName);
+  if(e.target.tagName=== 'IMG'){
+      console.log(e.target.id)
+    let removeIt = e.target.parentNode
+     removeIt.remove()
+ // removeIt.parentNode.removeChild(removeIt)  // removeIt ka parentNode ul, ul ka child removeIt 
+  }
+  
+ },false)
+   
+</script>
+</html>
